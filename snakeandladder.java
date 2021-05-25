@@ -5,8 +5,11 @@ public static void main(String args[])
 int player1;
 int position = 0;
 int dice = 0;
+int sum0=0;
+int sum1=0;
+int currentplayer=0;
 
-while ( position < 100)
+while ( sum0 < 100 && sum1 <100 )
 
 {
 
@@ -24,6 +27,18 @@ switch (option)
 	position = position - diceroll;
 	}
 	dice++;
+	if ( currentplayer == 0)
+        {
+        sum0= sum0 + diceroll;
+        
+        }
+        else if ( currentplayer == 1 )
+        {
+        sum1= sum1 + diceroll;
+        
+        }
+
+	System.out.println( "currentplayer is :" + currentplayer );
 	break;
 
 	case 2:
@@ -39,6 +54,18 @@ switch (option)
 	position = 0;
 	}
 	dice++;
+	if ( currentplayer == 0)
+	{
+	sum0= sum0 - diceroll;
+	currentplayer=1;
+	}
+	else if ( currentplayer == 1 )
+	{
+	sum1= sum1 - diceroll;
+	currentplayer = 0;
+	}
+	 System.out.println( "currentplayer is :" + currentplayer );
+
 	break;
 	 
 	default:
@@ -46,10 +73,29 @@ switch (option)
 	position = position;
 	System.out.println("current position is : " + position);
 	dice++;
+	 if ( currentplayer == 0)
+        {
+        sum0= sum0 ;
+        currentplayer=1;
+        }
+        else if ( currentplayer == 1 )
+        {
+        sum1= sum1 ;
+        currentplayer = 0;
+        }
+	 System.out.println( "currentplayer is :" + currentplayer );
+
+
+
 }
 System.out.println( + option);
 System.out.println(+ diceroll );
 }
 System.out.println(" the no. of times the dice was rolled : " + dice );
+System.out.println(" position of player0 is :" + sum0 );
+System.out.println(" position of player1 is : " + sum1 );
+
 }
 }
+
+
