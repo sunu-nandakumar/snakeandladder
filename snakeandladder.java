@@ -5,7 +5,9 @@ public static void main(String args[])
 int player1;
 int position = 0;
 
-System.out.println(" is at position " + position);
+int diceroll = (1 + (int)(Math.random () * 6 ));
+
+System.out.println(+ diceroll );
 
 }
 }
