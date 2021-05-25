@@ -38,18 +38,18 @@ switch (option)
 	{
 	position = 0;
 	}
-	dice++
+	dice++;
 	break;
 	 
 	default:
 	//no play
 	position = position;
 	System.out.println("current position is : " + position);
-	dice++
+	dice++;
 }
 System.out.println( + option);
 System.out.println(+ diceroll );
 }
-System.out.println(" the no. of times the dice was rolled : " + dice )
+System.out.println(" the no. of times the dice was rolled : " + dice );
 }
 }
