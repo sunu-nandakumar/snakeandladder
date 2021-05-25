@@ -7,9 +7,10 @@ int position = 0;
 
 int diceroll = (1 + (int)(Math.random () * 6 ));
 
-int option = (int)((Math.random () * 10) % 3 ) ;
+while ( position < 100)
 
-	System.out.println( + option);
+{
+int option = (int)((Math.random () * 10) % 3 ) ;
 
 switch (option)
 {
@@ -27,6 +28,10 @@ switch (option)
 	position = position - diceroll ;
 	System.out.println("current position is : " + position);
 	}
+	else if (position < diceroll )
+	{
+	position = 0;
+	}
 	break;
 	 
 	default:
@@ -35,8 +40,9 @@ switch (option)
 	System.out.println("current position is : " + position);
 
 }
-
+System.out.println( + option);
 System.out.println(+ diceroll );
+}
 
 }
 }
