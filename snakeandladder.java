@@ -5,11 +5,11 @@ public static void main(String args[])
 int player1;
 int position = 0;
 
-int diceroll = (1 + (int)(Math.random () * 6 ));
-
 while ( position < 100)
 
 {
+
+int diceroll = (1 + (int)(Math.random () * 6 ));
 int option = (int)((Math.random () * 10) % 3 ) ;
 
 switch (option)
@@ -18,6 +18,10 @@ switch (option)
 	//ladder
 	position = position + diceroll;
 	System.out.println("current position is : " + position);
+	if(position > 100)
+	{
+	position = position - diceroll;
+	}
 	break;
 
 	case 2:
