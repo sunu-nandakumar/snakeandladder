@@ -4,6 +4,7 @@ public static void main(String args[])
 {
 int player1;
 int position = 0;
+int dice = 0;
 
 while ( position < 100)
 
@@ -22,6 +23,7 @@ switch (option)
 	{
 	position = position - diceroll;
 	}
+	dice++;
 	break;
 
 	case 2:
@@ -36,17 +38,18 @@ switch (option)
 	{
 	position = 0;
 	}
+	dice++
 	break;
 	 
 	default:
 	//no play
 	position = position;
 	System.out.println("current position is : " + position);
-
+	dice++
 }
 System.out.println( + option);
 System.out.println(+ diceroll );
 }
-
+System.out.println(" the no. of times the dice was rolled : " + dice )
 }
 }
