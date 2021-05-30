@@ -1,101 +1,96 @@
-public class snakeandladder{
 
-public static void main(String args[])
-{
-int player1;
-int position = 0;
-int dice = 0;
-int sum0=0;
-int sum1=0;
-int currentplayer=0;
+public class snakeandladder {
+	public static void main(String[] args) {
 
-while ( sum0 < 100 && sum1 <100 )
+		int dice = 0;
+		int[] arr = new int[] { 0, 0, 0 };
 
-{
+		while (arr[0] < 100 && arr[1] < 100)
 
-int diceroll = (1 + (int)(Math.random () * 6 ));
-int option = (int)((Math.random () * 10) % 3 ) ;
+		{
 
-switch (option)
-{
-	case 1:
-	//ladder
-	position = position + diceroll;
-	System.out.println("current position is : " + position);
-	if(position > 100)
-	{
-	position = position - diceroll;
-	}
-	dice++;
-	if ( currentplayer == 0)
-        {
-        sum0= sum0 + diceroll;
-        
-        }
-        else if ( currentplayer == 1 )
-        {
-        sum1= sum1 + diceroll;
-        
-        }
+			int diceroll = (1 + (int) (Math.random() * 6));
+			int option = (int) ((Math.random() * 10) % 3);
 
-	System.out.println( "currentplayer is :" + currentplayer );
-	break;
+			switch (option) {
+			case 1:
+				// ladder
+				if (arr[2] == 0) {
+					arr[0] = arr[0] + diceroll;
+					if(arr[0] > 100) {
+						arr[0]= arr[0] - diceroll;
+					}
+					System.out.println("current position is : " + arr[0]);
+				} else if (arr[2] == 1) {
 
-	case 2:
-	//snake
-	if (position > diceroll)
+					arr[1] = arr[1] + diceroll;
+					if(arr[1] > 100) {
+						arr[1]= arr[1] - diceroll;
+					}
+					System.out.println("current position is : " + arr[1]);
+				}
 
-	{
-	position = position - diceroll ;
-	System.out.println("current position is : " + position);
-	}
-	else if (position < diceroll )
-	{
-	position = 0;
-	}
-	dice++;
-	if ( currentplayer == 0)
-	{
-	sum0= sum0 - diceroll;
-	currentplayer=1;
-	}
-	else if ( currentplayer == 1 )
-	{
-	sum1= sum1 - diceroll;
-	currentplayer = 0;
-	}
-	 System.out.println( "currentplayer is :" + currentplayer );
+				System.out.println("currentplayer is :" + arr[2]);
+				dice++;
 
-	break;
-	 
-	default:
-	//no play
-	position = position;
-	System.out.println("current position is : " + position);
-	dice++;
-	 if ( currentplayer == 0)
-        {
-        sum0= sum0 ;
-        currentplayer=1;
-        }
-        else if ( currentplayer == 1 )
-        {
-        sum1= sum1 ;
-        currentplayer = 0;
-        }
-	 System.out.println( "currentplayer is :" + currentplayer );
+				break;
 
+			case 2:
+				// snake
 
+				if (arr[2] == 0) {
+					if (arr[0] > diceroll) {
+						arr[0] = arr[0] - diceroll;
+						arr[2] = 1;
+						
+
+					} else if (arr[0] < diceroll) {
+						arr[0] = 0;
+						arr[2] = 1;
+					}
+
+				}
+
+				else if (arr[2] == 1) {
+					if (arr[1] > diceroll) {
+						arr[1] = arr[1] - diceroll;
+						arr[2] = 0;
+					} else if (arr[1] < diceroll) {
+						arr[1] = 0;
+						arr[2] = 0;
+					}
+				}
+				System.out.println("currentplayer is :" + arr[2]);
+				dice++;
+
+				break;
+
+			default:
+				// no play
+
+				if (arr[2] == 0) {
+					arr[0] = arr[0];
+					arr[2] = 1;
+					System.out.println("current position is : " + arr[2]);
+
+				} else if (arr[2] == 1) {
+					arr[1] = arr[1];
+					arr[2] = 0;
+				}
+				System.out.println("currentplayer is :" + arr[2]);
+				dice++;
+
+			}
+			System.out.println(+option);
+			System.out.println(+diceroll);
+		}
+		System.out.println(" the no. of times the dice was rolled : " + dice);
+		System.out.println(" position of player0 is :" + arr[0]);
+		System.out.println(" position of player1 is : " + arr[1]);
+}
 
 }
-System.out.println( + option);
-System.out.println(+ diceroll );
-}
-System.out.println(" the no. of times the dice was rolled : " + dice );
-System.out.println(" position of player0 is :" + sum0 );
-System.out.println(" position of player1 is : " + sum1 );
 
-}
-}
+
 
 
